@@ -1,0 +1,15 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+/**
+ * main - prints the environment using the gliobal variable environ
+ *
+ * Return: Always 0
+ */
+int main(void)
+{
+	char *env = getenv("environ");
+
+	printf("%s\n", (env != NULL) ? env : "getenv returned NULL");
+	return (0);
+}

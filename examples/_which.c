@@ -1,0 +1,55 @@
+#include <stdio.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <unistd.h>
+#include <stdlib.h>
+#include <string.h>
+
+/**
+ * main - looks for files in the current PATH
+ *
+ * Return: Always 0
+ */
+int main(int argc, char **argv)
+{
+	unsigned int i, k;
+	struct stat st;
+	char *path[20], fullname[1024];
+
+	if (argc < 2)
+	{
+		printf("Usage: %s path_to_file ...\n", argv[0]);
+		return (1);
+	}
+	path[0] = getenv("PATH");
+	path[1] = strtok(path[0], ":");
+	i = 2;
+	while ((path[i] = strtok(NULL, ":")) != NULL)
+	       i++;
+	printf("%s\n", path[3]);
+	i = 1;
+	while (argv[i])
+	{
+		k = 1;
+		while(path[k])
+		{
+			memset(fullname, 0, sizeof(fullname));
+			strcat(fullname, path[k]);
+			strcat(fullname, "/");
+			strcat(fullname, argv[i]);
+			printf("%s:", fullname);
+			if (stat(fullname, &st) == 0)
+			{
+				printf(" FOUND\n");
+				break;
+			}
+			else
+			{
+				printf(" NOT FOUND\n");
+			}
+			k++;
+		}
+		i++;
+	}
+	return (0);
+}
