@@ -12,6 +12,11 @@
 
 extern char **environ;
 
+#define BUFSIZE 1024
+#define PRINTER(c) (write(STDOUT_FILENO, c, _strlen(c)))
+
+int _putchar(char c);
+int display_help(char **cmd, __attribute__((unused))int er);
 int printenv(char **env);
 int _strcmp(char *s1, char *s2);
 char *_strcat(char *dest, char *src, char *src2, char *src3);
@@ -36,5 +41,13 @@ int built_in(char **args, char **env);
 void shell_exit(char **args, char **env, char *command);
 int toint(char *str);
 int exec_func(char **args, char **env, char *command);
+int history( char *input);
+void free_env(char **env);
+int display_hist(__attribute__((unused))char **c, __attribute__((unused))int s);
+void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
+char *_memcpy(char *dest, char *src, unsigned int n);
+void *fill_an_array(void *a, int el, unsigned int len);
+char *_getline();
+void hash_handle(char *buff);
 
 #endif

@@ -25,6 +25,14 @@ int built_in(char **args, char **env)
 	{
 		return (_cd(args, env));
 	}
+	else if (_strcmp(args[0], "help") == 0)
+	{
+		return (display_help);
+	}
+	else if (_strcmp(args[0], "history") == 0)
+	{
+		return (display_hist);
+	}
 	else if (_strcmp(args[0], "^C") == 0)
 	{
 		handle_sigint(SIGINT);
