@@ -19,7 +19,6 @@ void piped(char **my_env)
 		if (_strcmp(args[0], "exit") == 0)
 		{
 			shell_exit(args, my_env, command);
-			break;
 		}
 		exec_func(args, my_env, command);
 		bytes = 0;

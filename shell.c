@@ -17,7 +17,7 @@ int main(void)
 		my_env[k] = _strdup(environ[k]);
 	my_env[k] = NULL;
 	if (!isatty(STDIN_FILENO))
-		piped();
+		piped(my_env);
 	while (1)
 	{
 		write(STDOUT_FILENO, "$ ", 3);
