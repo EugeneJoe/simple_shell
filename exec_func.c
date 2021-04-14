@@ -25,7 +25,8 @@ int exec_func(char **args, char **env, char *command __attribute__((unused)))
 		{
 			if (_strncmp(args[0], "echo", 4) == 0)
 				check_args(args, env);
-			check_path(args, env);
+			if (_strncmp(args[0], "./", 2) != 0)
+				check_path(args, env);
 			if (execve(args[0], args, env) == -1)
 			{
 				perror("Error: ");
