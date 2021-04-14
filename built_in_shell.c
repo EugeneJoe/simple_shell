@@ -1,5 +1,5 @@
 #include "shelberton.h"
-
+i
 /**
  * built_in - works out which built-in functions to be called when necessary
  * @args: arguments passed on command line
@@ -31,7 +31,7 @@ int built_in(char **args, char **env)
 	}
 	else if (_strcmp(args[0], "history") == 0)
 	{
-		return (display_hist);
+		return (disp_hist);
 	}
 	else if (_strcmp(args[0], "^C") == 0)
 	{
