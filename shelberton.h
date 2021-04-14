@@ -42,13 +42,13 @@ char **parsecommand(char *command);
 int built_in(char **args, char **env);
 void shell_exit(char **args, char **env, char *command);
 int toint(char *str);
-int exec_func(char **args, char **env, char *command);
+int exec_func(char **args, char **env, char **argv);
 int history(char *input);
 void free_env(char **env);
 int disp_hist(__attribute__((unused))char **c, __attribute__((unused))int s);
 void *fill_an_array(void *a, int el, unsigned int len);
 void hash_handle(char *buff);
-char *_getline();
+char *_getline(char **argv);
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
 char *_memcpy(char *dest, char *src, unsigned int n);
 

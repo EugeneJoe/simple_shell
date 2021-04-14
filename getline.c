@@ -4,7 +4,7 @@
   *
   * Return: Input.
   */
-char *_getline()
+char *_getline(char **argv)
 {
 	int i, buffsize = BUFSIZE, rd;
 	char c = 0;
@@ -23,6 +23,7 @@ char *_getline()
 		if (rd == 0)
 		{
 			free(buff);
+			perror(argv[0]);
 			exit(EXIT_SUCCESS);
 		}
 		buff[i] = c;
@@ -35,7 +36,10 @@ char *_getline()
 		{
 			buff = _realloc(buff, buffsize, buffsize + 1);
 			if (buff == NULL)
+			{
+				perror(argv[0]);
 				return (NULL);
+			}
 		}
 	}
 	buff[i] = '\0';

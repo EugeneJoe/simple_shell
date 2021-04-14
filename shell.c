@@ -11,7 +11,6 @@
 int main(int argc __attribute__((unused)), char **argv)
 {
 	ssize_t k = 0;
-/*	size_t size = 0;*/
 	char **args, *my_env[60], *command = NULL;
 
 	signal(SIGINT, handle_sigint);
@@ -22,16 +21,18 @@ int main(int argc __attribute__((unused)), char **argv)
 	while (1)
 	{
 		write(STDOUT_FILENO, "$ ", 3);
-		command = _getline();
+		command = _getline(argv);
 		if (command != NULL)
 		{
 			args = parsecommand(command);
+			if (args == NULL)
+				perror(argv[0]);
 			if (_strcmp(args[0], "exit") == 0)
 			{
 				shell_exit(args, my_env, command);
 				break;
 			}
-			exec_func(args, my_env, command);
+			exec_func(args, my_env, argv);
 		}
 		else
 		{

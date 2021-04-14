@@ -8,7 +8,7 @@
  *
  * Return: 0
  */
-int exec_func(char **args, char **env, char *command __attribute__((unused)))
+int exec_func(char **args, char **env, char **argv)
 {
 	int status;
 	pid_t child_pid;
@@ -29,7 +29,7 @@ int exec_func(char **args, char **env, char *command __attribute__((unused)))
 				check_path(args, env);
 			if (execve(args[0], args, env) == -1)
 			{
-				perror("Error: ");
+				perror(argv[0]);
 				return (-1);
 			}
 		}

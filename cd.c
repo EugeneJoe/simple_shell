@@ -39,7 +39,7 @@ int _cd(char **args, char **env)
 	status = chdir(cwd);
 	if (status == -1)
 	{
-		perror("Error :");
+/*		perror("Error :");*/
 	}
 	else
 	{

@@ -23,7 +23,6 @@ char **parsecommand(char *command)
 	args = malloc(sizeof(char *) * len);
 	if (!args)
 	{
-		perror("Error: ");
 		free(args);
 		return (NULL);
 	}
@@ -35,5 +34,8 @@ char **parsecommand(char *command)
 		token = strtok(NULL, " ");
 	}
 	args[i] = NULL;
-	return (args);
+	if (*args != NULL)
+		return (args);
+	else
+		return (NULL);
 }
