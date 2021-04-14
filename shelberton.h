@@ -41,17 +41,13 @@ int built_in(char **args, char **env);
 void shell_exit(char **args, char **env, char *command);
 int toint(char *str);
 int exec_func(char **args, char **env, char *command);
-<<<<<<< HEAD
-int history( char *input);
+int history(char *input);
 void free_env(char **env);
-int display_hist(__attribute__((unused))char **c, __attribute__((unused))int s);
+int disp_hist(__attribute__((unused))char **c, __attribute__((unused))int s);
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
 char *_memcpy(char *dest, char *src, unsigned int n);
 void *fill_an_array(void *a, int el, unsigned int len);
 char *_getline();
 void hash_handle(char *buff);
-=======
-void piped(char **my_env);
->>>>>>> 5637e89b1aef079862bf4b9d5988cc5b9fd2e7ff
 
 #endif
