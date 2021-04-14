@@ -1,0 +1,27 @@
+.\" Manpage for shell program
+.TH simple_shell 1 "14 April 2021" "1.0" "shell man page"
+.SH NAME
+simple_shell - a program that can be used to run different commands and programs
+.SH SYNOPSIS
+./shell
+.SH DESCRIPTION
+shell is a shell program that can be used to run other programs and shell
+commands interactively. It can accept arguments for the programs and commands,
+as well as process comments, denoted by the '#' symbol.
+.SH BUILT_IN COMMANDS
+.PP
+exit - Exit the shell. Optional integer argument.
+.PP
+cd - Change current working directory.
+.PP
+setenv - Modify an existing or create a new environment variable.
+.SH BUGS
+No known bugs
+.SH AUTHORS
+NAME: EUGENE MUTHUI
+EMAIL: jmuthui70@gmail.com
+
+NAME: PATRICK ORANGI
+EMAIL:
+.SH COPYRIGHT
+Copyright (c) 2021
