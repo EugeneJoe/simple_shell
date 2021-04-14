@@ -46,6 +46,9 @@ int exec_func(char **args, char **env, char *command);
 int history(char *input);
 void free_env(char **env);
 int disp_hist(__attribute__((unused))char **c, __attribute__((unused))int s);
+void *fill_an_array(void *a, int el, unsigned int len)
+void hash_handle(char *buff)
+char *_getline();
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
 char *_memcpy(char *dest, char *src, unsigned int n);
 
