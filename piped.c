@@ -23,8 +23,4 @@ void piped(char **my_env)
 		exec_func(args, my_env, command);
 		bytes = 0;
 	}
-	else
-	{
-		perror("Error: ");
-	}
 }
