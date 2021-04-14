@@ -2,11 +2,16 @@
 
 /**
  * piped - runs commands that have been piped to our shell
+ * @my_env: pointer to array of pointers to environment variables
  *
  * Return: no return value
  */
-void piped(void)
+void piped(char **my_env)
 {
+        ssize_t bytes;
+        size_t size = 0;
+        char **args, *command = NULL;
+
 	bytes = getline(&command, &size, stdin);
 	if (bytes != -1)
 	{
