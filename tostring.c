@@ -17,7 +17,7 @@ char *tostring(int num)
 		len++;
 		n /= 10;
 	}
-	str = (char *)malloc(sizeof(char) * len);
+	str = (char *)malloc(sizeof(char) * (len + 1));
 	if (!str)
 	{
 		free(str);

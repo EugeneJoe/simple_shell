@@ -3,13 +3,15 @@
 /**
  * main - a simple shell that can run commands with their full path, without
  * any arguments
+ * @argc: number of arguments passed to the function
+ * @argv: pointer to array of pointers to strings that are the arguments
  *
  * Return: Always 0
  */
-int main(void)
+int main(int argc __attribute__((unused)), char **argv)
 {
-	ssize_t bytes, k = 0;
-	size_t size = 0;
+	ssize_t k = 0;
+/*	size_t size = 0;*/
 	char **args, *my_env[60], *command = NULL;
 
 	signal(SIGINT, handle_sigint);
@@ -20,8 +22,8 @@ int main(void)
 	while (1)
 	{
 		write(STDOUT_FILENO, "$ ", 3);
-		bytes = _getline(&command, &size, stdin);
-		if (bytes != -1)
+		command = _getline();
+		if (command != NULL)
 		{
 			args = parsecommand(command);
 			if (_strcmp(args[0], "exit") == 0)
@@ -30,15 +32,16 @@ int main(void)
 				break;
 			}
 			exec_func(args, my_env, command);
-			bytes = 0;
 		}
 		else
 		{
-			perror("Error: ");
+			perror(argv[0]);
 		}
+		free(command);
 		free_2d(args);
 		free(args);
 	}
+	free(command);
 	free_2d(args);
 	free(args);
 	free_2d(my_env);

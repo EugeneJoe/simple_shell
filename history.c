@@ -27,13 +27,13 @@ int history(char *input)
 	return (1);
 }
 /**
-  * display_hist - displays history of user input.
+  * disp_hist - displays history of user input.
   * @c: parsed command.
   * @s: status of last execution.
   *
   * Return: 0 on SUCESS, -1 ON ERROR.
   */
-int display_hist(__atribute__((unused))char **c, __attribute__((unused))int s)
+int disp_hist(__attribute__((unused))char **c, __attribute__((unused))int s)
 {
 	char *filename = ".simple_shell_history";
 	FILE *fp;
