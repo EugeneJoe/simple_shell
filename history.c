@@ -6,7 +6,7 @@
   */
 int history(char *input)
 {
-	char *filename = "simple_shell_history";
+	char *filename = ".simple_shell_history";
 	ssize_t fd, w;
 	int len = 0;
 
@@ -35,7 +35,7 @@ int history(char *input)
   */
 int display_hist(__atribute__((unused))char **c, __attribute__((unused))int s)
 {
-	char *filename = "simple_shell_history";
+	char *filename = ".simple_shell_history";
 	FILE *fp;
 	char *line = NULL;
 	size_t len = 0;

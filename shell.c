@@ -16,12 +16,11 @@ int main(void)
 	for (k = 0; environ[k]; k++)
 		my_env[k] = _strdup(environ[k]);
 	my_env[k] = NULL;
-/*	if (!isatty(STDIN_FILENO))
-		piped(my_env);*/
+
 	while (1)
 	{
 		write(STDOUT_FILENO, "$ ", 3);
-		bytes = getline(&command, &size, stdin);
+		bytes = _getline(&command, &size, stdin);
 		if (bytes != -1)
 		{
 			args = parsecommand(command);
