@@ -4,7 +4,7 @@
  * exec_func - executes given commands in child process
  * @args: command and arguments read from stdin
  * @env: array of environment variables
- * @command: string read from stdin
+ * @argv: Pointer to array of pointers to arguments to the program
  *
  * Return: 0
  */

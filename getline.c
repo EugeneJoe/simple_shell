@@ -1,6 +1,7 @@
 #include "shelberton.h"
 /**
   * _getline - reads user inputfrom STDIN.
+  * @argv: pointer to array of pointers to arguments to the program
   *
   * Return: Input.
   */
