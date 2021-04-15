@@ -24,6 +24,7 @@ char *_getline(char **argv)
 		if (rd == 0)
 		{
 			free(buff);
+			printf("Hii kitu\n");
 			perror(argv[0]);
 			exit(EXIT_SUCCESS);
 		}

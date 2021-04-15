@@ -18,7 +18,7 @@ int exec_func(char **args, char **env, char **argv)
 		child_pid = fork();
 		if (child_pid == -1)
 		{
-			perror("Error: ");
+			perror(argv[0]);
 			return (-1);
 		}
 		if (child_pid == 0)
@@ -29,6 +29,7 @@ int exec_func(char **args, char **env, char **argv)
 				check_path(args, env);
 			if (execve(args[0], args, env) == -1)
 			{
+				printf("Woi\n");
 				perror(argv[0]);
 				return (-1);
 			}

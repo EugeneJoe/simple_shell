@@ -17,20 +17,24 @@ int main(int argc __attribute__((unused)), char **argv)
 	for (k = 0; environ[k]; k++)
 		my_env[k] = _strdup(environ[k]);
 	my_env[k] = NULL;
-
+	k = 0;
 	while (1)
 	{
-		write(STDOUT_FILENO, "$ ", 3);
+		k = isatty(STDIN_FILENO);
+		if (k == 1)
+			write(STDOUT_FILENO, "$ ", 2);
 		command = _getline(argv);
 		if (command != NULL)
 		{
 			args = parsecommand(command);
 			if (args == NULL)
+			{
 				perror(argv[0]);
+			}
 			if (_strcmp(args[0], "exit") == 0)
 			{
 				shell_exit(args, my_env, command);
-				break;
+				return (0);
 			}
 			exec_func(args, my_env, argv);
 		}
@@ -38,6 +42,8 @@ int main(int argc __attribute__((unused)), char **argv)
 		{
 			perror(argv[0]);
 		}
+		if (k != 1)
+			break;
 		free(command);
 		free_2d(args);
 		free(args);
