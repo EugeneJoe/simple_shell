@@ -1,4 +1,4 @@
-#include "shelberton.h"
+#include "shellheader.h"
 
 /**
  * check_path - checks whether commands are found in PATH environment variable
