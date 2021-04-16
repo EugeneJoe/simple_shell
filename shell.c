@@ -17,7 +17,6 @@ int main(int argc __attribute__((unused)), char **argv)
 	for (k = 0; environ[k]; k++)
 		my_env[k] = _strdup(environ[k]);
 	my_env[k] = NULL;
-	k = 0;
 	while (1)
 	{
 		k = isatty(STDIN_FILENO);
@@ -28,9 +27,7 @@ int main(int argc __attribute__((unused)), char **argv)
 		{
 			args = parsecommand(command);
 			if (args == NULL)
-			{
 				perror(argv[0]);
-			}
 			if (_strcmp(args[0], "exit") == 0)
 			{
 				shell_exit(args, my_env, command);
