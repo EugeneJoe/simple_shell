@@ -152,3 +152,22 @@ thus the calling function should free the returned pointer.
 
 Removes an existing environment variable. Called when the "unset" command
 is received.
+
+## putchar.c
+
+Our implementation of the putchar function that prints a given character to STDOUT.
+
+## history.c
+
+Our implementation of the built-in history command that stores and displays commands previously entered by the user in the terminal.It stores the commands in a file named ".simple_shell_history" and displays that file's content when called. It contains different helper functions which are aptly named to indicate their functionality.
+
+## help_fun.c
+
+This contains helper functions to some of our functions;display_help is used to execute
+the inbuilt help command which enables their execution once they are called.
+
+## getline.c
+
+This is our own implementation of the getline function that reads user input from STDIN 
+and whose return value is the read user input.It has inbuilt functionality to ignore
+comments denoted by a "#" sign at the start thus providing clear and required outcome.
