@@ -1,9 +1,16 @@
-# Introduction
+# Simple Shell
 
 The files in this repository are functions and programs that deal with
 setting up a UNIX command line interpreter.
 
-  - Usage: simple_shell
+  - Usage: command arguments(optional)
+
+### Examples
+
+  - ls /bin
+  - history
+  - pwd
+  - echo $PATH
 
 The shell:
 1. Displays a prompt and waits for the user to type a command. Command lines
@@ -12,6 +19,12 @@ The shell:
 3. If an executable cannot be found, an error message is displayed, followed
    by a prompt.
 4. Handles the "end-of-file" condition (CTRL+D)
+
+## Compilation instructions
+
+1. Clone this repository to your local machine.
+2. Run gcc *c -o shell
+3. Run shell program (./shell)
 
 ## buildstr.c
 
