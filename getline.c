@@ -44,6 +44,7 @@ char *_getline(char **argv)
 		}
 	}
 	buff[i] = '\0';
+	printf("%s\n", buff);
 	hash_handle(buff);
 	return (buff);
 }

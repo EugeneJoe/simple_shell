@@ -13,15 +13,16 @@
  */
 int main(void)
 {
-	char command[1024];
-	int status, child_pid, bytes = 0;
+	char *command;
+	int status, child_pid;
+	ssize_t bytes;
+	size_t nn;
 	char *args[] = {NULL};
 
 	while (1)
 	{
 		printf("#JOE_SHELL$ ");
-		bytes = scanf("%[a-zA-Z0-9./!_^ ]", command);
-		while ((getchar()) != '\n');
+		bytes = getline(&command, &nn, stdin);
 		if (bytes != 0)
 		{
 			if (strcmp(command, "^C") == 0)
